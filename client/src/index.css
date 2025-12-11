@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "Courier Prime", monospace;
+  --font-sans: "Inter", sans-serif;
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  /* Indie Sleaze LIGHT Mode
+     Light Grey, High Contrast Black, Hot Pink accents
+  */
+  
+  --background: 0 0% 90%; /* Light Grey */
+  --foreground: 0 0% 5%; /* Almost Black */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 5%;
+  
+  --popover: 0 0% 98%;
+  --popover-foreground: 0 0% 5%;
+  
+  --primary: 220 80% 30%; /* Dark Blue */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 80%; /* Light Silver/Grey */
+  --secondary-foreground: 0 0% 0%;
+  
+  --muted: 0 0% 93%;
+  --muted-foreground: 0 0% 40%;
+  
+  --accent: 220 80% 30%; /* Dark Blue Accent */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 0 0% 70%; /* Darker border for visibility on light grey */
+  --input: 0 0% 70%;
+  --ring: 220 80% 30%;
+  
+  --radius: 0rem; 
+}
+
+/* Custom Utilities for Texture */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.08; /* Slightly more visible on light */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  filter: contrast(150%);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(0, 50, 150, 0.3);
+}
+
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+::selection {
+  background-color: hsl(var(--primary));
+  color: white;
+}
